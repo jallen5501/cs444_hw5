@@ -1,0 +1,60 @@
+Script started on Fri 12 May 2017 11:54:14 PM EDT
+tuser@tutor-vserver:~$ mtip -f sequences.lnx 
+For command help, type ~?
+For help on args, rerun without args
+Code starts at 0x100100
+Using board # 1 
+~downloading sequences.lnx
+
+............Done.
+
+Download done, setting EIP to 100100.
+Tutor> go 100100
+aaaaaaaaaazzzmain3: Tested all sequences that start at less than 500000.
+main2: Tested sequences through 500000.
+main2: Longest sequence of length 446 started at 410011.
+AAAAAAAAAASHUTTING DOWN
+
+EXIT CODE OF PROCESS 1: 2
+TICKS IN PROCESS 1: 58
+CHARACTERS ENQUEUED IN PROCESS 1: 23
+
+EXIT CODE OF PROCESS 2: 1
+TICKS IN PROCESS 2: 33
+CHARACTERS ENQUEUED IN PROCESS 2: 99
+
+EXIT CODE OF PROCESS 3: 1
+TICKS IN PROCESS 3: 2
+CHARACTERS ENQUEUED IN PROCESS 3: 61
+
+CALLS TO SCHEDULER:
+0 is sysexit 1 and 2 are in tunix.c and 3 is the preemptive scheduler
+CALLS TO SCHEDULER 0: 0
+CALLS TO SCHEDULER 1: 1
+CALLS TO SCHEDULER 2: 3
+CALLS TO SCHEDULER 3: 17
+SHUTTING THE SYSTEM DOWN!
+Debug log from run:
+Marking kernel events as follows:
+  ^a   COM2 input interrupt, a received
+  ~d   COM2 output interrupt, ordinary char output
+  ~e   COM2 output interrupt, echo output
+  ~s   COM2 output interrupt, shutdown TX ints
+  |(1z-2) process switch from 1, now a zombie, to 2
+  |(1b-2) process switch from 1, now blocked, to 2
+  |(2-1) process switch (by preemption) from 2 to 1
+|(0-1)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s*1*1*1*1*1|(1-2)*2*2*2*2*2|(2-3)~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s|(3z-1)*1*1*1*1*1|(1-2)*2*2*2*2*2|(2-1)*1*1*1*1*1|(1-2)*2*2*2*2*2|(2-1)*1*1*1*1*1|(1-2)*2*2*2*2*2|(2-1)*1*1*1*1*1|(1-2)*2*2*2*2*2|(2-1)*1*1*1*1*1|(1-2)*2*2*2*2*2|(2-1)*1*1*1*1*1|(1-2)*2*2*2~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s~d~s|(2z-1)*1*1*1*1*1|(1-1)*1*1*1*1*1|(1-1)*1*1*1*1*1|(1-1)*1*1*1*1*1|(1-1)*1*1*1~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s|(1z-0)
+LEAVE KERNEL!
+
+Exception 3 at EIP=0010010b: Breakpoint
+Tutor> Quit
+tuser@tutor-vserver:~$ exit
+exit
+
+Script done on Fri 12 May 2017 11:55:36 PM EDT
+
+Statistical Summary:
+debug log feature shows ticks being called 5 at a time for each process and then the 
+preemptive scheduler blocks the process and goes to another. Each supsequent process has a smaller run time
+which is which explains the downward trend in ticks 
+all character are successfully enqueued into transmit buffer

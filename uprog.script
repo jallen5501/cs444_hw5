@@ -1,0 +1,60 @@
+Script started on Fri 12 May 2017 11:27:42 PM EDT
+tuser@tutor-vserver:~$ mtip -f uprog123.lnx 
+For command help, type ~?
+For help on args, rerun without args
+Code starts at 0x100100
+Using board # 1 
+~downloading uprog123.lnx
+
+............Done.
+
+Download done, setting EIP to 100100.
+Tutor> go 100100
+aaaaaaaaaazzzbbbbbbbbbbccccccccccAAAAAAAAAASHUTTING DOWN
+
+EXIT CODE OF PROCESS 1: 2
+TICKS IN PROCESS 1: 56
+CHARACTERS ENQUEUED IN PROCESS 1: 23
+
+EXIT CODE OF PROCESS 2: 4
+TICKS IN PROCESS 2: 0
+CHARACTERS ENQUEUED IN PROCESS 2: 10
+
+EXIT CODE OF PROCESS 3: 6
+TICKS IN PROCESS 3: 0
+CHARACTERS ENQUEUED IN PROCESS 3: 10
+
+CALLS TO SCHEDULER:
+0 is sysexit 1 and 2 are in tunix.c and 3 is the preemptive scheduler
+CALLS TO SCHEDULER 0: 0
+CALLS TO SCHEDULER 1: 1
+CALLS TO SCHEDULER 2: 3
+CALLS TO SCHEDULER 3: 11
+SHUTTING THE SYSTEM DOWN!
+Debug log from run:
+Marking kernel events as follows:
+  ^a   COM2 input interrupt, a received
+  ~d   COM2 output interrupt, ordinary char output
+  ~e   COM2 output interrupt, echo output
+  ~s   COM2 output interrupt, shutdown TX ints
+  |(1z-2) process switch from 1, now a zombie, to 2
+  |(1b-2) process switch from 1, now blocked, to 2
+  |(2-1) process switch (by preemption) from 2 to 1
+|(0-1)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s~d~d~d~s|(1-2)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s|(2z-3)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s|(3z-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s|(1z-0)
+LEAVE KERNEL!
+
+Exception 3 at EIP=0010010b: Breakpoint
+Tutor> Quit
+tuser@tutor-vserver:~$ exit
+exit
+
+Script done on Fri 12 May 2017 11:29:10 PM EDT
+
+
+
+Statistical Summary:
+I was able to get the preemptive scheduler to work.
+Most of my calls to scheduler are preemptive. Only one of the processes is ever put 
+on hold in the scheduler becuase it has a longer run time then the other processes.
+The other 2 process run in under 50ms and are never blocked.
+Enqueue count shows that all character were successfully enquued into transmit buffer

@@ -1,0 +1,74 @@
+Script started on Fri 12 May 2017 11:55:11 AM EDT
+tuser@tutor-vserver:~$ mtip -f uprog123.lnx 
+For command help, type ~?
+For help on args, rerun without args
+Code starts at 0x100100
+Using board # 1 
+~downloading uprog123.lnx
+
+............Done.
+
+Download done, setting EIP to 100100.
+Tutor> go 100100
+Disabled interrupts in CPU while setting them up
+Setting interrupt gate for timer, irq 0
+Commanding PIC to interrupt CPU for irq 0
+Commanding timer to generate a pulse train using max count
+Enabling interrupts in CPU
+* aaaaaaaaaazzz* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+bbbbbbbbbbcccccccccc* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+* * * * * PREEMPTIVE SCHEDULER BEING CALLED
+Leavins process 1
+AAAAAAAAAASHUTTING DOWN
+* 
+EXIT CODE OF PROCESS 1: 2
+TIME SPENT IN PROCESS 1: 600
+CHARACTERS ENQUEUED IN PROCESS 1: 15
+
+EXIT CODE OF PROCESS 2: 4
+TIME SPENT IN PROCESS 2: 0
+CHARACTERS ENQUEUED IN PROCESS 2: 6
+* 
+EXIT CODE OF PROCESS 3: 6
+TIME SPENT IN PROCESS 3: 0
+CHARACTERS ENQUEUED IN PROCESS 3: 6
+Commanding PIC to shut off irq 0 to CPU
+SHUTTING THE SYSTEM DOWN!
+Debug log from run:
+Marking kernel events as follows:
+  ^a   COM2 input interrupt, a received
+  ~d   COM2 output interrupt, ordinary char output
+  ~e   COM2 output interrupt, echo output
+  ~s   COM2 output interrupt, shutdown TX ints
+  |(1z-2) process switch from 1, now a zombie, to 2
+  |(1b-2) process switch from 1, now blocked, to 2
+  |(2-1) process switch (by preemption) from 2 to 1
+|(0-1)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s~d~d~d~s|(1-2)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s|(2z-3)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s|(3z-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)|(1-1)~d~d~d~d~d~d~s~d~s~d~s~d~s~d~s|(1z-0)
+LEAVE KERNEL!
+
+Exception 3 at EIP=0010010b: Breakpoint
+Tutor> Quit
+tuser@tutor-vserver:~$ exit
+exit
+
+Script done on Fri 12 May 2017 11:56:09 AM EDT
